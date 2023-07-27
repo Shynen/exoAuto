@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.App {
+  text-align: center;
+}
+.w-full  {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:5%;
+  height:500px;
+  border-radius: 15px;
+}
+/* Texte défilant */
+.messagedefilant {
+  display: block;
+  margin: 40px auto;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  width: 60%;
+  max-width: 640px;
+  height: 60px;
+  margin-left:40%
+}
+ 
+.messagedefilant div {
+  position: absolute;
+  min-width: 100%; /* au minimum la largeur du conteneur */
+}
+ 
+.messagedefilant div span, 
+.messagedefilant div:after {
+  position: relative;
+  display: inline-block;
+  font-size: 2rem;
+  white-space: nowrap;
+  top:0;
+}
+ 
+.messagedefilant div span {
+  display: flex;
+  animation: defilement 10s infinite linear;
+  background: rgba(14, 81, 148, 0);
+  color:white;
+  margin-left:auto
+}
+ 
+.messagedefilant div:after {
+  position: absolute;
+  top:0; left:0;
+  content:attr(data-text);
+  animation: defilement2 10s infinite linear;
+  background: rgba(238, 221, 204, 0);
+}
+ 
+@keyframes defilement {
+  0% { margin-left: 0; }
+  100% { margin-left: -100%; }
+}
+ 
+@keyframes defilement2 {
+  0% { margin-left: 100%; }
+  100% { margin-left: 0%; }
+}
+
+/* fin mot defilant */
+.listePhoto {
+  display: flex;
+  margin-left:5%;
+  margin-top:2%;
+}
+.photoListed {
+  height: 150px;
+  width: 150px;
+  margin-right: 2px;
+}
+.infoVehicule {
+  display:grid;
+}
+.duration-1000 {
+  transition-duration: 4000ms;
+}
